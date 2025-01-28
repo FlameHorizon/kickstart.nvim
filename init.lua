@@ -91,18 +91,14 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
--- Make line numbers default
-vim.opt.number = true
--- You can also add relative line numbers, to help with jumping.
---  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
+vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -961,6 +957,33 @@ require('lazy').setup({
 
 -- Load ashen colorscheme
 vim.cmd 'colorscheme ashen'
+
+-- Vertical line at 80 char mark
+vim.opt.colorcolumn = '80'
+
+-- Open Ex file explorer
+vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+
+-- Define a function to run the .bat file
+local function run_bat(path)
+  local bat_file = path -- Replace with the actual path to your .bat file
+
+  -- Run the .bat file and capture the output and errors
+  local result = vim.fn.system(bat_file)
+  result = result:match '^%s*(.-)%s*$'
+
+  -- Display the output or error message in Neovim
+  vim.notify(result, vim.log.levels.INFO)
+end
+
+-- Builds dotnet project
+vim.keymap.set('n', '<C-t>', function()
+  run_bat 'test.bat'
+end, { noremap = true, silent = true })
+
+vim.keymap.set('n', '<C-b>', function()
+  run_bat 'build.bat'
+end, { noremap = true, silent = true })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
