@@ -985,5 +985,10 @@ vim.keymap.set('n', '<C-b>', function()
   run_bat 'build.bat'
 end, { noremap = true, silent = true })
 
+vim.keymap.set('n', '<c-y>', function()
+  local word = vim.fn.expand '<cword>'
+  return string.format('owhile (%s) {<CR>}<ESC>O', word)
+end, { expr = true })
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
