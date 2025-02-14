@@ -834,12 +834,11 @@ require('lazy').setup({
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     --
-    'ficcdaf/ashen.nvim',
-    -- optional but recommended,
-    -- pin to the latest stable release:
-    tag = 'v0.9.0',
-    lazy = false,
+    'rjshkhr/shadow.nvim',
     priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'shadow'
+    end,
   },
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
@@ -954,9 +953,6 @@ require('lazy').setup({
     },
   },
 })
-
--- Load ashen colorscheme
-vim.cmd 'colorscheme ashen'
 
 -- Vertical line at 80 char mark
 vim.opt.colorcolumn = '80'
