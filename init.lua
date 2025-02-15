@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 --[[
 
 =====================================================================
@@ -828,12 +829,20 @@ require('lazy').setup({
     end,
   },
   {
-    'ashen-org/ashen.nvim',
-    -- optional but recommended, pin to the latest stable release:
-    tag = 'v0.9.0',
+    'folke/tokyonight.nvim',
     lazy = false,
     priority = 1000,
+    opts = {},
+    config = function()
+      require('tokyonight').setup {
+        style = 'storm',
+        on_colors = function(colors)
+          colors.bg = '#252933'
+        end,
+      }
+    end,
   },
+
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
@@ -919,7 +928,6 @@ require('lazy').setup({
       { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
     },
   },
-
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- place them in the correct locations.
@@ -968,8 +976,8 @@ require('lazy').setup({
   },
 })
 
--- Load ashen colorscheme
-vim.cmd 'colorscheme ashen'
+-- Set color scheme
+vim.cmd 'colorscheme tokyonight'
 
 -- Vertical line at 80 char mark
 vim.opt.colorcolumn = '80'
