@@ -880,6 +880,9 @@ require('lazy').setup({
     opts = {},
     config = function()
       require('tokyonight').setup {
+        styles = {
+          comments = { italic = false }, --Disable italics in comments
+        },
         style = 'storm',
         on_colors = function(colors)
           colors.bg = '#252933'
