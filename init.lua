@@ -884,19 +884,15 @@ require('lazy').setup({
     end,
   },
   {
-    'folke/tokyonight.nvim',
+    'neanias/everforest-nvim',
+    version = false,
     lazy = false,
-    priority = 1000,
-    opts = {},
+    priority = 1000, -- make sure to load this before all the other start plugins
+    -- Optional; default configuration will be used if setup isn't called.
     config = function()
-      require('tokyonight').setup {
-        styles = {
-          comments = { italic = false }, --Disable italics in comments
-        },
-        style = 'storm',
-        on_colors = function(colors)
-          colors.bg = '#252933'
-        end,
+      require('everforest').setup {
+        background = 'hard',
+        disable_italic_comments = true,
       }
     end,
   },
@@ -1035,7 +1031,7 @@ require('lazy').setup({
 })
 
 -- Set color scheme
-vim.cmd 'colorscheme tokyonight'
+vim.cmd 'colorscheme everforest'
 
 -- Vertical line at 80 char mark
 vim.opt.colorcolumn = '80'
