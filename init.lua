@@ -1037,7 +1037,7 @@ vim.cmd 'colorscheme everforest'
 vim.opt.colorcolumn = '80'
 
 -- Open Ex file explorer
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+vim.keymap.set('n', '<leader>e', vim.cmd.Ex)
 
 -- Define a function to run the .bat file
 local function run_bat(path)
