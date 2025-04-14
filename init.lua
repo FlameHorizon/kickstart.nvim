@@ -1068,5 +1068,8 @@ vim.keymap.set('n', '<c-y>', function()
   return string.format('owhile (%s) {<CR>}<ESC>O', word)
 end, { expr = true })
 
+-- Saves files using Ctrl+S
+vim.keymap.set('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
