@@ -883,20 +883,6 @@ require('lazy').setup({
       }
     end,
   },
-  {
-    'neanias/everforest-nvim',
-    version = false,
-    lazy = false,
-    priority = 1000, -- make sure to load this before all the other start plugins
-    -- Optional; default configuration will be used if setup isn't called.
-    config = function()
-      require('everforest').setup {
-        background = 'hard',
-        disable_italic_comments = true,
-      }
-    end,
-  },
-
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
@@ -1031,7 +1017,7 @@ require('lazy').setup({
 })
 
 -- Set color scheme
-vim.cmd 'colorscheme everforest'
+vim.cmd 'colorscheme habamax'
 
 -- Vertical line at 80 char mark
 vim.opt.colorcolumn = '80'
