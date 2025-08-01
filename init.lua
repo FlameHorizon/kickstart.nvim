@@ -1026,6 +1026,9 @@ vim.cmd 'colorscheme habamax'
 -- Vertical line at 80 char mark
 vim.opt.colorcolumn = '80'
 
+-- Disable wrapping
+vim.cmd 'set nowrap'
+
 vim.o.shiftwidth = 2
 vim.o.expandtab = false
 
