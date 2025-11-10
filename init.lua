@@ -91,7 +91,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -1027,5 +1027,12 @@ vim.o.shiftwidth = 2
 vim.o.tabstop = 2
 vim.o.expandtab = true
 vim.opt.colorcolumn = "80"
+
+vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
+vim.keymap.set("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
+
+-- Disable wrapping
+vim.cmd("set nowrap")
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
